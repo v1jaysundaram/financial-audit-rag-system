@@ -1,20 +1,13 @@
 # import necessary libraries
-from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
+from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader, PDFPlumberLoader
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-def clean_text(text):
-    """Remove extra whitespaces from text."""
-    return ' '.join(text.split())
-
 def load_contracts():
     """
-    Loads all PDF contracts.
-
-    Returns:
-        List[Dict]: Cleaned documents with metadata.
+        Loads all PDF contracts.
     """
 
     file_path = r"D:\Data Science_ML\Projects\GenAI\financial-audit-rag-system\data\contracts" 
@@ -28,12 +21,4 @@ def load_contracts():
 
     contract_docs = contract_loader.load()
 
-    contract_docs_cleaned = [
-        {
-            "page_content": clean_text(doc.page_content), # Cleaned text 
-            "metadata": doc.metadata  # Preserve metadata
-        }
-        for doc in contract_docs
-    ]
-
-    return contract_docs_cleaned
+    return contract_docs 
