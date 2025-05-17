@@ -1,7 +1,7 @@
-from rag_system.loaders.contract_loader import load_contracts
-from rag_system.processors.contract_processor import process_contracts
-from rag_system.splitters.contract_splitter import split_contracts
-from rag_system.embeddings.contract_embeddings import embed_contracts
+from rag_system.contracts.contract_loader import load_contracts
+from rag_system.contracts.contract_processor import process_contracts
+from rag_system.contracts.contract_splitter import split_contracts
+from rag_system.contracts.contract_embeddings import embed_contracts
 
 file_path = r"D:\Data Science_ML\Projects\GenAI\financial-audit-rag-system\data\contracts" 
 

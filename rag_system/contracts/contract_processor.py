@@ -1,4 +1,4 @@
-from rag_system.loaders.contract_loader import load_contracts
+from rag_system.contracts.contract_loader import load_contracts
 import os
 from dotenv import load_dotenv
 
