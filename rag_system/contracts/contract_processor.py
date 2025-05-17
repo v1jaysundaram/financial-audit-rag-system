@@ -1,6 +1,7 @@
 from rag_system.contracts.contract_loader import load_contracts
 import os
 from dotenv import load_dotenv
+from langchain_core.documents import Document
 
 load_dotenv()
 
@@ -15,25 +16,15 @@ def extract_supplier(metadata: dict) -> str | None:
         return name.replace("_", " ")
     return None
 
-def process_contracts(contract_docs):
-
-    contract_cleaned = [
-        {
-            "page_content": clean_text(doc.page_content),
-            "metadata": doc.metadata
-        }
-        for doc in contract_docs
-    ]
-
-    contract_with_supplier = [
-        {
-            "page_content": doc["page_content"],
-            "metadata": {
-                **doc["metadata"],
-                "supplier_name": extract_supplier(doc["metadata"])
-            }
-        }
-        for doc in contract_cleaned
-    ]
-
-    return contract_with_supplier
+def process_contracts(contract_docs: list[Document]) -> list[Document]:
+    processed_docs = []
+    for doc in contract_docs:
+        cleaned_text = clean_text(doc.page_content)
+        supplier = extract_supplier(doc.metadata)
+        updated_metadata = dict(doc.metadata)
+        if supplier:
+            updated_metadata["supplier_name"] = supplier
+        processed_docs.append(
+            Document(page_content=cleaned_text, metadata=updated_metadata)
+        )
+    return processed_docs
