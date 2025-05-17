@@ -15,9 +15,7 @@ def extract_supplier(metadata: dict) -> str | None:
         return name.replace("_", " ")
     return None
 
-def process_contracts(file_path):
-
-    contract_docs = load_contracts(file_path)
+def process_contracts(contract_docs):
 
     contract_cleaned = [
         {
