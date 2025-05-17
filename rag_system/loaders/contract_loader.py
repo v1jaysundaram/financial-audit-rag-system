@@ -1,16 +1,11 @@
 # import necessary libraries
-from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader, PDFPlumberLoader
+from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 from dotenv import load_dotenv
 
-# Load environment variables
+# load environment variables
 load_dotenv()
 
-def load_contracts():
-    """
-        Loads all PDF contracts.
-    """
-
-    file_path = r"D:\Data Science_ML\Projects\GenAI\financial-audit-rag-system\data\contracts" 
+def load_contracts(file_path):
 
     contract_loader = DirectoryLoader(
         path=file_path,
@@ -21,4 +16,4 @@ def load_contracts():
 
     contract_docs = contract_loader.load()
 
-    return contract_docs 
+    return contract_docs
