@@ -1,7 +1,10 @@
 from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
+from dotenv import load_dotenv
 
-persist_dir = "contracts"  # same as in embed_contracts persist_directory
+load_dotenv()
+
+persist_dir = "embeddings/contracts"  # same as in embed_contracts persist_directory
 
 if __name__ == "__main__":
     # Load existing vectorstore
@@ -10,4 +13,7 @@ if __name__ == "__main__":
         persist_directory=persist_dir,
         collection_name="contracts",
     )
+
+
+
 
