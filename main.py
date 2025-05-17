@@ -9,6 +9,8 @@ if __name__ == "__main__":
     raw_contracts = load_contracts(file_path)
     cleaned_contracts = process_contracts(raw_contracts)
     chunked_contracts = split_contracts(cleaned_contracts, chunk_size=1000, chunk_overlap=200)
-    vectorstore = embed_contracts(chunked_contracts)
+    contract_vectorstore = embed_contracts(chunked_contracts)
 
     print("Contracts processed and embedded successfully.")
+
+    print(contract_vectorstore.get(include=["embedding", "documents", "metadatas"])[0])
