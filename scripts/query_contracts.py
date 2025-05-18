@@ -1,9 +1,16 @@
+# scripts/query_contracts.py
+
 from rag_system.contracts.contract_retriever import retrieve_contracts
+from rag_system.contracts.contract_chains import contract_chain
 
-contract_retriever = retrieve_contracts(supplier_filter="Hall Snyder and Rodriguez Ltd")
-query = "What is the notice period for termination?"
-results = contract_retriever.invoke(query)
+# Setup retriever
+supplier = "Hall Snyder and Rodriguez Ltd"
+query = "When does the contract end?"
 
-for i, doc in enumerate(results, 1):
-    print(f"\n📄 Result #{i}\n{'-'*40}")
-    print(doc.page_content)  # print first 1000 characters only
+retriever = retrieve_contracts(supplier_filter=supplier)
+
+# Get the chain and run the query
+qa_chain = contract_chain(retriever)
+answer = qa_chain.invoke(query)
+
+print(answer)
