@@ -4,16 +4,6 @@ from rag_system.contracts.contract_retriever import retrieve_contracts
 from rag_system.contracts.contract_chains import contract_chain
 import sys
 
-# patch for sqlite3
-# This is a workaround for the issue with sqlite3 in Python 3.12
-try:
-    import pysqlite3
-    sys.modules["sqlite3"] = pysqlite3
-except ImportError:
-    raise RuntimeError(
-        "pysqlite3 not found. Add 'pysqlite3-binary' to your requirements.txt"
-    )
-
 
 def main():
     st.title("Fin AI")
