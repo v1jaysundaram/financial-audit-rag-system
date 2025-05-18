@@ -1,4 +1,4 @@
-# import necessary libraries
+"""# import necessary libraries
 from langchain.vectorstores import Chroma
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.retrievers.document_compressors import LLMChainExtractor
@@ -34,3 +34,4 @@ def retrieve_contracts(supplier_filter=None):
     )
 
     return compressor_retriever
+"""
