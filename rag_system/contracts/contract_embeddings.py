@@ -1,7 +1,7 @@
 # import necessary libraries
 from langchain_openai import OpenAIEmbeddings
 #from langchain.vectorstores import Chroma
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 
 
 """# define the function to embed contracts
