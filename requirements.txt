@@ -6,3 +6,5 @@ langchain_openai==0.3.17
 python-dotenv==1.1.0
 streamlit==1.45.1
 protobuf==3.20.*
+chromadb==0.4.24
+opentelemetry-exporter-otlp-proto-grpc==1.24.0
