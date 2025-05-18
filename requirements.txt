@@ -1,4 +1,4 @@
-#faiss-cpu==1.7.4
+faiss-cpu
 langchain>=0.3.25
 #chromadb>=0.3.21
 langchain_community==0.3.24
