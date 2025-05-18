@@ -1,13 +1,7 @@
-import pysqlite3
-import sys
-sys.modules['sqlite3'] = pysqlite3
-
+# import necessary libraries
 import streamlit as st
 from rag_system.contracts.contract_retriever import retrieve_contracts
 from rag_system.contracts.contract_chains import contract_chain
-import sqlite3
-
-
 
 def main():
     st.title("Fin AI")

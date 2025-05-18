@@ -7,4 +7,3 @@ streamlit==1.45.1
 protobuf>=4.21.0
 opentelemetry-exporter-otlp-proto-grpc==1.24.0
 python-3.10.9
-pysqlite3-binary
