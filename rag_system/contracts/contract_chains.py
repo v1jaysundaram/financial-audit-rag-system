@@ -15,6 +15,7 @@ def contract_chain(retriever):
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2)
     parser = StrOutputParser()
 
+
     parallel_chain = RunnableParallel({
         'context': retriever | RunnableLambda(format_docs),
         'question': RunnablePassthrough()
