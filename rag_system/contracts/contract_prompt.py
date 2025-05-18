@@ -1,3 +1,4 @@
+# import necessary libraries
 from langchain_core.prompts import PromptTemplate
 
 def contract_prompt():

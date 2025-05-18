@@ -4,10 +4,11 @@ from rag_system.contracts.contract_retriever import retrieve_contracts
 from rag_system.contracts.contract_chains import contract_chain
 
 def main():
-    st.title("Financial Audit RAG System — Contracts Module")
+    st.title("Fin AI")
+    st.caption("AI-driven insights across your contracts, invoices, and payments.")
     
-    supplier = st.text_input("Supplier Name", help="Enter the supplier to filter contracts")
-    query = st.text_area("Query", help="Enter your question about the contract")
+    supplier = st.text_input("Supplier Name", help="Filter results by supplier")
+    query = st.text_area("Query", help="Ask a question about the contract")
     
     if st.button("Get Answer"):
         if not supplier.strip():
@@ -26,6 +27,9 @@ def main():
                 st.write(answer)
             except Exception as e:
                 st.error(f"Error during retrieval: {e}")
+
+# Sidebar footer
+st.sidebar.write("Built by [Vijay](https://www.linkedin.com/in/vijay-sundaram/)", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()

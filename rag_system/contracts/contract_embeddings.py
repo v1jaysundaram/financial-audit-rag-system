@@ -1,6 +1,8 @@
+# import necessary libraries
 from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 
+# define the function to embed contracts
 def embed_contracts(docs):
     vectorstore = Chroma(
         embedding_function=OpenAIEmbeddings(),

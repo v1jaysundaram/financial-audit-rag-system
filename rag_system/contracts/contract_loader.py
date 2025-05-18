@@ -5,7 +5,10 @@ from dotenv import load_dotenv
 # load environment variables
 load_dotenv()
 
-def load_contracts(file_path):
+# define the function to load contracts
+def load_contracts():
+
+    file_path = r"D:\Data Science_ML\Projects\GenAI\financial-audit-rag-system\data\contracts"
 
     contract_loader = DirectoryLoader(
         path=file_path,
